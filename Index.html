@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohamed & Reham | Wedding Invitation</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:#f7efe7;color:#654b40;font-family:Georgia,serif;display:flex;align-items:center;justify-content:center;padding:22px}
+.card{width:100%;max-width:440px;text-align:center;background:#fffaf5;padding:35px 22px;border:1px solid #dfc4a8;box-shadow:0 12px 40px #75513a20}
+.small{letter-spacing:4px;text-transform:uppercase;font-size:11px;color:#a17b61}
+h1{font-size:38px;font-weight:normal;line-height:1.3;margin:22px 0}
+.amp{font-style:italic;color:#bd9876}
+.flower{font-size:30px;color:#b68d70;margin:12px}
+button{border:0;background:#89674f;color:white;padding:15px 24px;font-family:inherit;font-size:15px;letter-spacing:1px;cursor:pointer;margin-top:18px}
+#inside{display:none;animation:fade 1s ease}
+.line{height:1px;background:#dfc4a8;margin:24px 0}
+.detail{font-size:19px;line-height:1.8}
+#countdown{font-family:Arial,sans-serif;font-size:14px;line-height:2}
+a{color:#89674f}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="small">Together with their families</div>
+  <div class="flower">❦</div>
+  <div id="cover">
+    <div class="small">You are invited to celebrate</div>
+    <h1>Mohamed <span class="amp">&</span><br>Reham</h1>
+    <div class="line"></div>
+    <p>Two hearts, one beautiful beginning.</p>
+    <button onclick="openInvite()">OPEN YOUR INVITATION ♡</button>
+  </div>
+  <div id="inside">
+    <div class="small">Joyfully invite you to their wedding</div>
+    <h1>Mohamed <span class="amp">&</span><br>Reham</h1>
+    <div class="line"></div>
+    <div class="detail">THURSDAY<br><strong>22 OCTOBER 2026</strong><br>8:00 PM</div>
+    <div class="flower">❦</div>
+    <div class="small">THE WEDDING RECEPTION</div>
+    <h2>Larose Hall</h2>
+    <p>We would be delighted to celebrate this special day with you.</p>
+    <div class="line"></div>
+    <div class="small">COUNTDOWN TO OUR BIG DAY</div>
+    <p id="countdown">Counting down to the celebration...</p>
+    <a href="https://www.google.com/maps/search/?api=1&query=Larose+Hall+Damietta+Egypt" target="_blank">Find the venue on Google Maps ↗</a>
+    <p style="font-size:12px;margin-top:28px">With love, Mohamed & Reham</p>
+  </div>
+</main>
+<script>
+function openInvite(){
+ document.getElementById('cover').style.display='none';
+ document.getElementById('inside').style.display='block';
+}
+function tick(){
+ const target=new Date('2026-10-22T20:00:00+03:00').getTime();
+ const diff=target-Date.now();
+ const el=document.getElementById('countdown');
+ if(diff<=0){el.textContent="Today is the special day!";return}
+ const days=Math.floor(diff/86400000);
+ const hours=Math.floor(diff%86400000/3600000);
+ const mins=Math.floor(diff%3600000/60000);
+ const secs=Math.floor(diff%60000/1000);
+ el.textContent=days+' days · '+hours+' hours · '+mins+' minutes · '+secs+' seconds';
+}
+tick();setInterval(tick,1000);
+</script>
+</body>
+</html>

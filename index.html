@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8f3e9">
+<title>Mohamed &amp; Reham | Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Marhey:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ivory:#faf6ed;
+  --paper:#fffdf8;
+  --gold:#b29455;
+  --dark-gold:#806536;
+  --ink:#4c4034;
+  --muted:#8d7d69;
+  --line:#dfcfaa;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ivory);color:var(--ink);
+  font-family:"Amiri",serif;overflow-x:hidden
+}
+button,a{-webkit-tap-highlight-color:transparent}
+button{font:inherit}
+.cover{
+  min-height:100svh;display:flex;justify-content:center;align-items:center;
+  padding:22px;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse at top,#fffdf7 0%,transparent 65%),
+  linear-gradient(145deg,#f4ecdc,#fffaf0 50%,#efe3cc)
+}
+.cover:before,.cover:after{
+  content:"❦";position:absolute;color:#c9ae78;opacity:.48;
+  font-size:110px;pointer-events:none
+}
+.cover:before{top:3%;right:4%;transform:rotate(35deg)}
+.cover:after{bottom:3%;left:4%;transform:rotate(210deg)}
+.cover-inner{width:min(100%,430px);text-align:center;padding:30px 20px}
+.top-label{
+  font-family:"Cormorant Garamond",serif;letter-spacing:5px;
+  font-size:12px;color:var(--dark-gold);margin-bottom:27px
+}
+.envelope-wrap{position:relative;width:min(100%,330px);margin:0 auto 30px;perspective:1000px}
+.envelope{
+  position:relative;height:220px;background:#e6d5b5;
+  border:1px solid #c4a66d;box-shadow:0 18px 40px #71552b20;overflow:visible
+}
+.envelope-back{position:absolute;inset:0;background:linear-gradient(140deg,#e8d8ba,#f8efd9)}
+.letter{
+  position:absolute;z-index:2;background:var(--paper);border:1px solid var(--line);
+  width:86%;height:185px;left:7%;top:15px;padding:24px 10px;
+  transition:transform 1s ease,top 1s ease;box-shadow:0 3px 12px #72552b12
+}
+.letter small{font-family:"Cormorant Garamond",serif;color:var(--dark-gold);letter-spacing:3px}
+.mini-names{font-family:"Marhey",sans-serif;font-size:25px;color:var(--dark-gold);margin:12px 0}
+.envelope-front{
+  position:absolute;z-index:3;inset:0;
+  background:linear-gradient(150deg,#eee0c4,#e0c99e);
+  clip-path:polygon(0 0,50% 60%,100% 0,100% 100%,0 100%);
+  border-bottom:1px solid #c4a66d
+}
+.flap{
+  position:absolute;z-index:4;inset:0 0 auto;height:60%;
+  background:linear-gradient(145deg,#f7ebd2,#dfc69a);
+  clip-path:polygon(0 0,100% 0,50% 100%);
+  transform-origin:top center;transition:transform .85s ease
+}
+.seal{
+  position:absolute;z-index:5;top:43%;left:50%;transform:translate(-50%,-50%);
+  width:49px;height:49px;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 35% 30%,#d5b976,#9b783b);
+  border:2px solid #f5e6c0;color:#fff7e7;
+  font-family:"Cormorant Garamond",serif;font-size:18px;
+  box-shadow:0 3px 9px #60421e35;transition:opacity .3s
+}
+.envelope.open .flap{transform:rotateX(180deg)}
+.envelope.open .letter{transform:translateY(-115px)}
+.envelope.open .seal{opacity:0}
+.cover-title{font-family:"Marhey",sans-serif;font-size:24px;color:var(--dark-gold);margin:12px 0 5px}
+.cover-subtitle{color:var(--muted);font-size:17px;margin:0 0 23px}
+.open-btn{
+  border:1px solid var(--gold);border-radius:2px;background:var(--dark-gold);
+  color:white;padding:12px 34px;cursor:pointer;box-shadow:0 7px 20px #80653620
+}
+.hint{font-size:13px;color:var(--muted);margin-top:14px}
+.invitation{display:none;opacity:0;animation:fadeIn 1.1s ease forwards}
+.invitation.visible{display:block}
+@keyframes fadeIn{to{opacity:1}}
+.hero{
+  min-height:88svh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:65px 22px;
+  background:radial-gradient(ellipse at 50% 42%,#fffdf9 0%,#f8f1e4 72%)
+}
+.frame{
+  width:min(100%,480px);padding:45px 20px;border:1px solid var(--line);
+  outline:1px solid #d7c294;outline-offset:7px;position:relative
+}
+.frame:before,.frame:after{
+  content:"✧";position:absolute;color:var(--gold);font-size:25px;
+  background:var(--ivory);padding:0 8px
+}
+.frame:before{top:-16px;left:50%;transform:translateX(-50%)}
+.frame:after{bottom:-16px;left:50%;transform:translateX(-50%)}
+.eyebrow{color:var(--dark-gold);font-size:17px;margin-bottom:20px}
+.english-label{font-family:"Cormorant Garamond",serif;font-size:13px;letter-spacing:4px;color:var(--muted);direction:ltr}
+.names{
+  direction:ltr;font-family:"Cormorant Garamond",serif;
+  font-size:clamp(40px,10vw,62px);line-height:1.15;font-weight:500;
+  color:var(--dark-gold);margin:20px 0 10px
+}
+.ampersand{display:block;font-size:29px;font-style:italic;color:#c4a76c;margin:4px 0}
+.ornament{color:var(--gold);letter-spacing:8px;margin:20px 0;font-size:17px}
+.invite-message{font-size:21px;line-height:2;margin:20px auto;max-width:350px}
+.date-highlight{
+  direction:ltr;font-family:"Cormorant Garamond",serif;font-size:22px;
+  letter-spacing:2px;color:var(--dark-gold);margin-top:23px
+}
+.section{padding:65px 20px;text-align:center}
+.section-inner{width:min(100%,520px);margin:0 auto}
+.section-kicker{font-family:"Cormorant Garamond",serif;letter-spacing:4px;font-size:12px;color:var(--dark-gold);direction:ltr}
+.section-title{font-family:"Marhey",sans-serif;font-size:25px;font-weight:400;color:var(--dark-gold);margin:10px 0 8px}
+.section-desc{font-size:17px;color:var(--muted);line-height:1.9}
+.countdown-section{background:linear-gradient(180deg,#eee3cf,#f7f0e3);border-block:1px solid #e1d1b0}
+.countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:30px auto 20px;direction:ltr}
+.time-box{border:1px solid #cdb783;background:#fffaf1b8;padding:18px 3px 13px}
+.time-number{display:block;font-family:"Cormorant Garamond",serif;font-size:clamp(28px,7vw,39px);color:var(--dark-gold);line-height:1;font-variant-numeric:tabular-nums}
+.time-label{display:block;margin-top:10px;color:var(--muted);font-size:14px;direction:rtl}
+.event-card{margin-top:28px;border:1px solid var(--line);padding:28px 18px;background:#fffdf8a8}
+.calendar-date{font-family:"Cormorant Garamond",serif;color:var(--dark-gold);font-size:43px;line-height:1.1}
+.calendar-month{font-size:19px;margin:5px 0 18px}
+.detail-row{padding:13px 0;border-top:1px solid #e9dfcb;font-size:18px}
+.detail-icon{color:var(--gold);display:inline-block;margin-left:8px}
+.action-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  text-decoration:none;border:1px solid var(--gold);background:var(--dark-gold);
+  color:white;padding:13px 24px;margin:9px 4px;font-size:17px;min-width:190px
+}
+.action-btn.secondary{color:var(--dark-gold);background:transparent}
+.venue-section{background:#fffdf8}
+.venue-icon{
+  width:76px;height:76px;border:1px solid var(--line);border-radius:50%;
+  display:grid;place-items:center;font-size:29px;color:var(--gold);margin:25px auto 18px
+}
+.venue-name{font-family:"Cormorant Garamond",serif;direction:ltr;font-size:40px;color:var(--dark-gold);margin:10px 0 5px}
+.venue-address{font-size:18px;line-height:2;color:var(--ink);margin:8px auto 18px}
+.address-en{font-family:"Cormorant Garamond",serif;font-size:17px;color:var(--muted);direction:ltr;line-height:1.6}
+.closing{padding:70px 22px 55px;text-align:center;background:linear-gradient(180deg,#f2e8d6,#f9f4ea)}
+.closing-ornament{color:var(--gold);font-size:30px;margin-bottom:12px}
+.closing p{font-size:20px;line-height:2;margin:10px auto}
+.closing-names{direction:ltr;font-family:"Cormorant Garamond",serif;color:var(--dark-gold);font-size:29px;margin-top:20px}
+footer{text-align:center;padding:17px;font-family:"Cormorant Garamond",serif;font-size:12px;color:var(--muted);letter-spacing:2px;background:#f9f4ea;direction:ltr}
+@media(max-width:360px){
+  .countdown{gap:4px}.time-box{padding:15px 1px 11px}
+  .time-label{font-size:12px}.frame{padding:35px 12px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+
+<body>
+
+<section class="cover" id="cover">
+  <div class="cover-inner">
+    <div class="top-label">A SPECIAL INVITATION</div>
+    <div class="envelope-wrap">
+      <div class="envelope" id="envelope">
+        <div class="envelope-back"></div>
+        <div class="letter">
+          <small>YOU ARE INVITED TO</small>
+          <div class="mini-names">Mohamed &amp; Reham</div>
+          <small>OUR WEDDING DAY</small>
+        </div>
+        <div class="envelope-front"></div>
+        <div class="flap"></div>
+        <div class="seal">M&nbsp;R</div>
+      </div>
+    </div>
+    <div class="cover-title">دعوة من القلب</div>
+    <p class="cover-subtitle">لحضور يوم من أجمل أيام العمر</p>
+    <button class="open-btn" id="openBtn" type="button">✧ افتح الظرف ✧</button>
+    <div class="hint">يسعدنا أن تكونوا جزءًا من فرحتنا</div>
+  </div>
+</section>
+
+<main class="invitation" id="invitation">
+
+  <section class="hero">
+    <div class="frame">
+      <div class="eyebrow">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
+      <div class="english-label">TOGETHER WITH OUR FAMILIES</div>
+      <div class="ornament">✧ ❦ ✧</div>
+      <div class="names">Mohamed<span class="ampersand">&amp;</span>Reham</div>
+      <div class="ornament">— ✧ —</div>
+      <p class="invite-message">
+        بكل الحب والفرح،<br>
+        نتشرف بدعوتكم لمشاركتنا<br>
+        أجمل لحظات العمر<br>
+        في ليلة تجمعنا على المحبة والسعادة.
+      </p>
+      <div class="date-highlight">THURSDAY · 22 · 10 · 2026</div>
+      <div class="section-desc">في انتظاركم لتكتمل فرحتنا بحضوركم</div>
+    </div>
+  </section>
+
+  <section class="section countdown-section">
+    <div class="section-inner">
+      <div class="section-kicker">SAVE THE DATE</div>
+      <h2 class="section-title">الوقت لحد فرحتنا</h2>
+      <p class="section-desc">كل لحظة تقرّبنا من يومنا المنتظر</p>
+      <div class="countdown" aria-label="العد التنازلي">
+        <div class="time-box"><span class="time-number" id="days">--</span><span class="time-label">يوم</span></div>
+        <div class="time-box"><span class="time-number" id="hours">--</span><span class="time-label">ساعة</span></div>
+        <div class="time-box"><span class="time-number" id="minutes">--</span><span class="time-label">دقيقة</span></div>
+        <div class="time-box"><span class="time-number" id="seconds">--</span><span class="time-label">ثانية</span></div>
+      </div>
+      <p id="countdownMessage" class="section-desc">ننتظركم بكل الحب</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-kicker">THE WEDDING DAY</div>
+      <h2 class="section-title">موعد لقائنا</h2>
+      <div class="event-card">
+        <div class="calendar-date">22</div>
+        <div class="calendar-month">أكتوبر · ٢٠٢٦</div>
+        <div class="detail-row"><span class="detail-icon">✧</span>الخميس</div>
+        <div class="detail-row"><span class="detail-icon">◷</span>الساعة ٨ مساءً</div>
+        <div class="detail-row"><span class="detail-icon">♡</span>ليلة نتمنى أن تبقى ذكرى جميلة</div>
+      </div>
+      <a class="action-btn secondary"
+         href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Mohamed%20%26%20Reham%20Wedding&amp;dates=20261022T170000Z%2F20261022T190000Z&amp;details=Wedding%20invitation&amp;location=La%20rose%2C%20New%20Damietta"
+         target="_blank" rel="noopener">
+        ＋ أضف الموعد للتقويم
+      </a>
+    </div>
+  </section>
+
+  <section class="section venue-section">
+    <div class="section-inner">
+      <div class="section-kicker">THE VENUE</div>
+      <h2 class="section-title">مكان الفرحة</h2>
+      <div class="venue-icon">❦</div>
+      <div class="venue-name">La rose</div>
+
+      <div class="venue-address">
+        دمياط الجديدة - جمعية المستثمرين<br>
+        قبل مديرية الأمن
+        <div class="address-en">
+          Dumyat al Jadidah, Egypt, 3451
+        </div>
+      </div>
+
+      <p class="section-desc">
+        الخميس ٢٢ أكتوبر ٢٠٢٦<br>
+        الساعة ٨ مساءً
+      </p>
+
+      <a class="action-btn"
+         href="https://maps.app.goo.gl/GTWgoXShriHGJbJN6?g_st=aw"
+         target="_blank" rel="noopener">
+        ⌖ افتح موقع القاعة
+      </a>
+      <p class="section-desc" style="font-size:15px;margin-top:16px">
+        اضغط على الزر لفتح الموقع على Google Maps
+      </p>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="closing-ornament">❦</div>
+    <p>
+      وجودكم هو أجمل هدية،<br>
+      وبحضوركم تحلو فرحتنا وتكتمل سعادتنا.
+    </p>
+    <div class="closing-names">Mohamed &amp; Reham</div>
+    <div class="ornament">✧ ✧ ✧</div>
+    <p style="font-size:17px">في انتظاركم بكل الحب</p>
+  </section>
+
+  <footer>MADE WITH LOVE · MOHAMED &amp; REHAM</footer>
+</main>
+
+<script>
+const weddingDate = new Date("2026-10-22T20:00:00+03:00").getTime();
+
+function updateCountdown() {
+  const difference = weddingDate - Date.now();
+  const message = document.getElementById("countdownMessage");
+
+  if (difference <= 0) {
+    ["days","hours","minutes","seconds"].forEach(id => {
+      document.getElementById(id).textContent = "00";
+    });
+    message.textContent = "اليوم هو يوم فرحتنا ♡";
+    return;
+  }
+
+  const day = Math.floor(difference / 86400000);
+  const hour = Math.floor((difference / 3600000) % 24);
+  const minute = Math.floor((difference / 60000) % 60);
+  const second = Math.floor((difference / 1000) % 60);
+
+  document.getElementById("days").textContent = String(day).padStart(2,"0");
+  document.getElementById("hours").textContent = String(hour).padStart(2,"0");
+  document.getElementById("minutes").textContent = String(minute).padStart(2,"0");
+  document.getElementById("seconds").textContent = String(second).padStart(2,"0");
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+document.getElementById("openBtn").addEventListener("click", () => {
+  const cover = document.getElementById("cover");
+  const invitation = document.getElementById("invitation");
+  document.getElementById("openBtn").disabled = true;
+  document.getElementById("envelope").classList.add("open");
+
+  setTimeout(() => {
+    cover.style.transition = "opacity .8s ease";
+    cover.style.opacity = "0";
+    setTimeout(() => {
+      cover.style.display = "none";
+      invitation.classList.add("visible");
+      window.scrollTo({top:0,behavior:"smooth"});
+    },800);
+  },850);
+});
+</script>
+
+</body>
+</html>
